@@ -471,12 +471,12 @@ final class HomeApps {
             String pkg = ri.activityInfo.packageName;
             if (seen.add(pkg)) out.add(new String[] {pkg, String.valueOf(ri.loadLabel(pm))});
         }
+        // Off: only TV apps. On: normal Android apps too, system ones included (projectors and AOSP boxes).
+        if (!Prefs.androidApps()) return out;
         Intent phone = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
-        boolean systemToo = Prefs.androidApps();   // projectors and AOSP boxes: their apps are all system apps
         for (ResolveInfo ri : pm.queryIntentActivities(phone, 0)) {
             String pkg = ri.activityInfo.packageName;
-            boolean system = (ri.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
-            if ((system && !systemToo) || !seen.add(pkg)) continue;
+            if (!seen.add(pkg)) continue;
             out.add(new String[] {pkg, String.valueOf(ri.loadLabel(pm))});
         }
         return out;
