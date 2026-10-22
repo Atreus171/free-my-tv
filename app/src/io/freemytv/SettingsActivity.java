@@ -625,8 +625,8 @@ public class SettingsActivity extends Activity {
         // MARK: - Home Settings and Remote Buttons
 
         private static final String[] UNITS = {"auto", "C", "F"}, THEMES = {"auto", "light", "dark"};
-        /** Home Settings: language, temperature, theme, sounds, weather, city, quotes, then one row per coin. */
-        private static final int CITY_ROW = 5, COIN_ROWS = 7;
+        /** Home Settings: language, temperature, theme, sounds, weather, Android apps, city, quotes, then one row per coin. */
+        private static final int CITY_ROW = 6, COIN_ROWS = 8, ANDROID_APPS_ROW = 5, QUOTES_ROW = 7;
 
         private boolean dollar() {
             return "BRL".equalsIgnoreCase(Config.CURRENCY.trim());
@@ -639,6 +639,7 @@ public class SettingsActivity extends Activity {
             l.add(Ui.tr("Theme"));
             l.add(Ui.tr("Navigation sounds"));
             l.add(Ui.tr("Weather widget"));
+            l.add(Ui.tr("Android apps"));
             l.add(Ui.tr("City"));
             l.add(Ui.tr("Quotes widget"));
             l.add("Bitcoin");
@@ -659,8 +660,9 @@ public class SettingsActivity extends Activity {
             v[2] = theme.equals("light") ? Ui.tr("Light") : theme.equals("dark") ? Ui.tr("Dark") : Ui.tr("Automatic");
             v[3] = onOff(Prefs.sounds());
             v[4] = onOff(Prefs.weather());
+            v[ANDROID_APPS_ROW] = onOff(Prefs.androidApps());
             v[CITY_ROW] = !cityStatus.isEmpty() ? cityStatus : Prefs.city().isEmpty() ? "—" : Prefs.city();
-            v[6] = onOff(Prefs.quotes());
+            v[QUOTES_ROW] = onOff(Prefs.quotes());
             // No quotes widget, nowhere to show prices: the coins read as off (and stay locked) until it is back on.
             for (int i = COIN_ROWS; i < v.length; i++) v[i] = onOff(Prefs.quotes() && Prefs.coin(i - COIN_ROWS));
             return v;
@@ -740,8 +742,9 @@ public class SettingsActivity extends Activity {
                 }
                 case 3: Prefs.setSounds(!Prefs.sounds()); break;
                 case 4: Prefs.setWeather(!Prefs.weather()); break;
+                case ANDROID_APPS_ROW: Prefs.setAndroidApps(!Prefs.androidApps()); break;
                 case CITY_ROW: return;
-                case 6: Prefs.setQuotes(!Prefs.quotes()); break;
+                case QUOTES_ROW: Prefs.setQuotes(!Prefs.quotes()); break;
                 default:
                     if (!Prefs.quotes()) return;
                     Prefs.setCoin(focus - COIN_ROWS, !Prefs.coin(focus - COIN_ROWS));

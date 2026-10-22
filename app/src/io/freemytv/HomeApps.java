@@ -472,9 +472,11 @@ final class HomeApps {
             if (seen.add(pkg)) out.add(new String[] {pkg, String.valueOf(ri.loadLabel(pm))});
         }
         Intent phone = new Intent(Intent.ACTION_MAIN).addCategory(Intent.CATEGORY_LAUNCHER);
+        boolean systemToo = Prefs.androidApps();   // projectors and AOSP boxes: their apps are all system apps
         for (ResolveInfo ri : pm.queryIntentActivities(phone, 0)) {
             String pkg = ri.activityInfo.packageName;
-            if ((ri.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0 || !seen.add(pkg)) continue;
+            boolean system = (ri.activityInfo.applicationInfo.flags & ApplicationInfo.FLAG_SYSTEM) != 0;
+            if ((system && !systemToo) || !seen.add(pkg)) continue;
             out.add(new String[] {pkg, String.valueOf(ri.loadLabel(pm))});
         }
         return out;
