@@ -3208,9 +3208,16 @@ final class HomeView extends ViewGroup implements Choreographer.FrameCallback, H
         if (usbConnected) drawStatusIcon(c, "usb", x, height, gap, color);
     }
 
+    /** Narrow symbols need a little more height to look as big as wide ones. */
+    private static float statusScale(String name) {
+        if ("bluetooth".equals(name)) return 1.18f;
+        if ("usb".equals(name)) return 1.1f;
+        return 1;
+    }
+
     /** Draws a status icon left-aligned at `left`; returns where the next one starts. */
     private float drawStatusIcon(Canvas c, String name, float left, float height, float gap, int color) {
-        float size = Symbols.pointSizeForHeight(getContext(), name, height);
+        float size = Symbols.pointSizeForHeight(getContext(), name, height * statusScale(name));
         float width = Symbols.width(getContext(), name, size);
         Symbols.draw(getContext(), c, name, left + width / 2, L_BUTTON_CY * k, size, color);
         return left + width + gap;
