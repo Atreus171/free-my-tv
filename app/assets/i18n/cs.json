@@ -1,11 +1,14 @@
 {
  ", selected": ", vybráno",
  ". In use": ". Používá se",
+ "12 hours": "12 hodin",
+ "24 hours": "24 hodin",
  "24h change": "změna za 24 h",
  "ADB message too large": "zpráva ADB je příliš velká",
  "ADB refused the command": "ADB odmítlo příkaz",
  "Accept “Allow USB debugging?” on the TV (tick “Always allow”).": "Na televizi potvrďte „Povolit ladění USB?“ (zaškrtněte „Vždy povolit“).",
  "All Apps": "Všechny aplikace",
+ "Android apps": "Aplikace pro Android",
  "Android didn't accept the new home screen": "Android nepřijal novou plochu",
  "Automatic": "Automaticky",
  "BRAVIA CORE button": "Tlačítko BRAVIA CORE",
@@ -13,6 +16,7 @@
  "Cancel": "Zrušit",
  "City": "Město",
  "Clear": "Slunečno",
+ "Clock": "Hodiny",
  "Cloudy": "Zataženo",
  "Connecting…": "Připojování…",
  "Couldn't check Free My TV: {error}": "Free My TV se nepodařilo zkontrolovat: {error}",
@@ -103,6 +107,7 @@
  "Sony default": "Výchozí Sony",
  "Sony default: the button opens what it always did.": "Výchozí Sony: tlačítko otevře to, co vždy.",
  "Starting…": "Spouštění…",
+ "Status icons": "Ikony stavu",
  "Sunrise {time}": "Východ {time}",
  "Sunset {time}": "Západ {time}",
  "Switching takes a few seconds; the screen blinks while it measures.": "Přepnutí trvá pár sekund; obrazovka během měření bliká.",
@@ -179,6 +184,5 @@
  "{n} h ago": "před {n} h",
  "{n} min ago": "před {n} min",
  "{n} ms": "{n} ms",
- "← → to move · OK to drop · Back to cancel": "← → přesunout · OK umístit · Zpět zrušit",
- "Android apps": "Aplikace pro Android"
+ "← → to move · OK to drop · Back to cancel": "← → přesunout · OK umístit · Zpět zrušit"
 }

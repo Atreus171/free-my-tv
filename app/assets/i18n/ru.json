@@ -1,11 +1,14 @@
 {
  ", selected": ", выбрано",
  ". In use": ". Используется",
+ "12 hours": "12 часов",
+ "24 hours": "24 часа",
  "24h change": "изменение за 24 ч",
  "ADB message too large": "слишком большое сообщение ADB",
  "ADB refused the command": "ADB отклонил команду",
  "Accept “Allow USB debugging?” on the TV (tick “Always allow”).": "На телевизоре разрешите отладку по USB и отметьте «Всегда разрешать».",
  "All Apps": "Приложения",
+ "Android apps": "Приложения Android",
  "Android didn't accept the new home screen": "Android не принял новый главный экран",
  "Automatic": "Автоматически",
  "BRAVIA CORE button": "Кнопка BRAVIA CORE",
@@ -13,6 +16,7 @@
  "Cancel": "Отмена",
  "City": "Город",
  "Clear": "Ясно",
+ "Clock": "Часы",
  "Cloudy": "Облачно",
  "Connecting…": "Подключение…",
  "Couldn't check Free My TV: {error}": "Не удалось проверить Free My TV: {error}",
@@ -103,6 +107,7 @@
  "Sony default": "Как задано Sony",
  "Sony default: the button opens what it always did.": "Как задано Sony: кнопка открывает то же, что и раньше.",
  "Starting…": "Запуск…",
+ "Status icons": "Значки состояния",
  "Sunrise {time}": "Восход {time}",
  "Sunset {time}": "Закат {time}",
  "Switching takes a few seconds; the screen blinks while it measures.": "Переключение занимает пару секунд; при замерах экран мигает.",
@@ -179,6 +184,5 @@
  "{n} h ago": "{n} ч назад",
  "{n} min ago": "{n} мин назад",
  "{n} ms": "{n} мс",
- "← → to move · OK to drop · Back to cancel": "← → — переместить · OK — оставить · Назад — отмена",
- "Android apps": "Приложения Android"
+ "← → to move · OK to drop · Back to cancel": "← → — переместить · OK — оставить · Назад — отмена"
 }

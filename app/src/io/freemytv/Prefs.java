@@ -96,6 +96,14 @@ final class Prefs {
 
     static void setTheme(String v) { put("theme", v); }
 
+    /** "auto" (the language's own pattern), "24" or "12". */
+    static String clockFormat() {
+        String v = sp().getString("clock", "auto");
+        return v.equals("24") || v.equals("12") ? v : "auto";
+    }
+
+    static void setClockFormat(String v) { put("clock", v); }
+
     // MARK: - City
 
     static String city() { return sp().getString("city", Config.CITY).trim(); }
@@ -125,6 +133,10 @@ final class Prefs {
     /** Also list normal Android (non-TV) apps, including system ones, in All Apps and the shelf editor. */
     static boolean androidApps() { return sp().getBoolean("androidapps", false); }
     static void setAndroidApps(boolean on) { put("androidapps", on); }
+
+    /** Wi-Fi/Ethernet, Bluetooth and USB icons at the top-left of the home screen. */
+    static boolean statusIcons() { return sp().getBoolean("statusicons", false); }
+    static void setStatusIcons(boolean on) { put("statusicons", on); }
 
     // MARK: - Shelf
 
