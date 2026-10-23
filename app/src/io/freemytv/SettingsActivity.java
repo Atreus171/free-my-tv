@@ -800,6 +800,14 @@ public class SettingsActivity extends Activity {
             return on ? Ui.tr("On") : Ui.tr("Off");
         }
 
+        /** Android 12 and newer only let an app see Bluetooth connections with this permission. */
+        private void requestBluetooth() {
+            if (android.os.Build.VERSION.SDK_INT >= 31
+                    && activity.checkSelfPermission("android.permission.BLUETOOTH_CONNECT") != PackageManager.PERMISSION_GRANTED) {
+                activity.requestPermissions(new String[] {"android.permission.BLUETOOTH_CONNECT"}, 1);
+            }
+        }
+
         private String[] keyLabels() {
             if (RemoteKeys.STEM_NETFLIX) return new String[] {Ui.tr("Netflix button")};
             if (RemoteKeys.KTC) return new String[] {Ui.tr("Tabii button")};
@@ -867,7 +875,12 @@ public class SettingsActivity extends Activity {
                 case 4: Prefs.setSounds(!Prefs.sounds()); break;
                 case 5: Prefs.setWeather(!Prefs.weather()); break;
                 case ANDROID_APPS_ROW: Prefs.setAndroidApps(!Prefs.androidApps()); break;
-                case STATUS_ICONS_ROW: Prefs.setStatusIcons(!Prefs.statusIcons()); break;
+                case STATUS_ICONS_ROW: {
+                    boolean on = !Prefs.statusIcons();
+                    Prefs.setStatusIcons(on);
+                    if (on) requestBluetooth();
+                    break;
+                }
                 case CITY_ROW: return;
                 case QUOTES_ROW: Prefs.setQuotes(!Prefs.quotes()); break;
                 default:

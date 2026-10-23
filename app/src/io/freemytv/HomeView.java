@@ -3211,7 +3211,7 @@ final class HomeView extends ViewGroup implements Choreographer.FrameCallback, H
     /** Narrow symbols need a little more height to look as big as wide ones. */
     private static float statusScale(String name) {
         if ("bluetooth".equals(name)) return 1.18f;
-        if ("usb".equals(name)) return 1.1f;
+        if ("usb".equals(name)) return 1.3f;
         return 1;
     }
 
